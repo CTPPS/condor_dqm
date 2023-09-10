@@ -1,4 +1,4 @@
-  Being on AFS create a cmssw release workspace
+Being on AFS create a cmssw release workspace
 
 ```
 source /cvmfs/cms.cern.ch/cmsset_default.sh
@@ -24,10 +24,22 @@ Adjust also expected output file name DQM_V0001_CTPPS_R000373088.root
 Submit the job using:
 
 ```
-cd condor_ZeroBiasNonColliding_D_Run2023F-v1_D_RAW_230910_233700; condor_submit job.jdl; cd -
+cd condor_ZeroBiasNonColliding_D_Run2023F-v1_D_RAW_230910_235330; condor_submit job.jdl; cd -
 ```
 
 To check the job status type:
 ```
 condor_q
 ```
+
+The results should be in
+
+```
+[grzankal@lxplus700 src]$ ls -alh condor_ZeroBiasNonColliding_D_Run2023F-v1_D_RAW_230910_235330/condorOut/
+total 3.5M
+drwxr-xr-x. 2 grzankal zh 2.0K Sep 11 00:01 .
+drwxr-xr-x. 5 grzankal zh 2.0K Sep 10 23:56 ..
+-rw-r--r--. 1 grzankal zh 3.5M Sep 11 00:01 DQM_V0001_CTPPS_R000373088_1801932_0.root
+```
+
+The script to submit the jobs is based on https://github.com/jeongeun/SimpleNtuplizer/blob/main/Run3Ntuplizer/test/cmsCondor.sh
